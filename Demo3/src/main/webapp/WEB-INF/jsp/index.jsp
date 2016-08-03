@@ -402,70 +402,70 @@
 	</div>
 </body>
 <script type="text/javascript">
-var mytable_width;
-var mychart_height;
-var type = 0;
-$("#table1_fullScreen").click(function(event) {
-	var table = document.getElementById("table1");
- 	mytable_width = $("#table1").width();
-	table.webkitRequestFullScreen();
-	$("#table1").width("90%");
-	type=1;
-});
-$("#form1_fullScreen").click(function(event) {
-	var form = document.getElementById("form1");
- 	mytable_width = $("#form1").width();
-	form.webkitRequestFullScreen();
-	$("#form1").width("90%");
-	type=2;
-});
-$("#table2_fullScreen").click(function(event) {
-	var table = document.getElementById("table2");
- 	mytable_width = $("#table2").width();
-	table.webkitRequestFullScreen();
-	$("#table2").width("90%");
-	type=3;
-});
-$("#chart1_fullScreen").click(function(event) {
-	var chart = document.getElementById("cesiumContainer1");
-	mychart_height = $("#cesiumContainer1").height();
-	chart.webkitRequestFullScreen();
-	$("#cesiumContainer1").height("100%");
-	type=4;
-});
-$("#chart2_fullScreen").click(function(event) {
-	var chart = document.getElementById("cesiumContainer2");
-	mychart_height = $("#cesiumContainer2").height();
-	chart.webkitRequestFullScreen();
-	$("#cesiumContainer2").height("100%");
-	type=5;
-});
-$("#chart3_fullScreen").click(function(event) {
-	var chart = document.getElementById("cesiumContainer3");
-	mychart_height = $("#cesiumContainer3").height();
-	chart.webkitRequestFullScreen();
-	$("#cesiumContainer3").height("100%");
-	type=6;
-});
-document.addEventListener("webkitfullscreenchange", function () { 
-	if(document.webkitIsFullScreen == false){//exit full screen
-	 	switch(type){
-	 	case 1:
-	 		$("#table1").width(mytable_width);break;
-	 	case 2:
-	 		$("#form1").width(mytable_width);break;
-	 	case 3:
-	 		$("#table2").width(mytable_width);break;
-	 	case 4:
-	 		$("#cesiumContainer1").height(mychart_height);break;
-	 	case 5:
-	 		$("#cesiumContainer2").height(mychart_height);break;
-	 	case 6:
-	 		$("#cesiumContainer3").height(mychart_height);break;
-	 		}
-	 		
-	}
-}, false);
-	
+	var mytable_width;
+	var mychart_height;
+	var type = 0;
+	$("#table1_fullScreen").click(function(event) {
+		var table = document.getElementById("table1");
+	 	mytable_width = $("#table1").width();
+		table.webkitRequestFullScreen();
+		$("#table1").width("90%");
+		type=1;
+	});
+	$("#form1_fullScreen").click(function(event) {
+		var form = document.getElementById("form1");
+	 	mytable_width = $("#form1").width();
+		form.webkitRequestFullScreen();
+		$("#form1").width("90%");
+		type=2;
+	});
+	$("#table2_fullScreen").click(function(event) {
+		var table = document.getElementById("table2");
+	 	mytable_width = $("#table2").width();
+		table.webkitRequestFullScreen();
+		$("#table2").width("90%");
+		type=3;
+	});
+	$("#chart1_fullScreen").click(function(event) {
+		var chart = document.getElementById("cesiumContainer1");
+		mychart_height = $("#cesiumContainer1").height();
+		chart.webkitRequestFullScreen();
+		$("#cesiumContainer1").height("100%");
+		type=4;
+	});
+	$("#chart2_fullScreen").click(function(event) {
+		var chart = document.getElementById("cesiumContainer2");
+		mychart_height = $("#cesiumContainer2").height();
+		chart.webkitRequestFullScreen();
+		$("#cesiumContainer2").height("100%");
+		type=5;
+	});
+	$("#chart3_fullScreen").click(function(event) {
+		var chart = document.getElementById("cesiumContainer3");
+		mychart_height = $("#cesiumContainer3").height();
+		chart.webkitRequestFullScreen();
+		$("#cesiumContainer3").height("100%");
+		type=6;
+	});
+	document.addEventListener("webkitfullscreenchange", function () { 
+		if(document.webkitIsFullScreen == false){//exit full screen
+		 	switch(type){
+		 	case 1:
+		 		$("#table1").width(mytable_width);break;
+		 	case 2:
+		 		$("#form1").width(mytable_width);break;
+		 	case 3:
+		 		$("#table2").width(mytable_width);break;
+		 	case 4:
+		 		$("#cesiumContainer1").height(mychart_height);break;
+		 	case 5:
+		 		$("#cesiumContainer2").height(mychart_height);break;
+		 	case 6:
+		 		$("#cesiumContainer3").height(mychart_height);break;
+		 		}
+		 		
+		}
+	}, false);
+		
 </script>
 </html>
