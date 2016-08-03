@@ -28,16 +28,21 @@
 $(document).ready(function(){
 	var viewer = new Cesium.Viewer('cesiumContainer');
 	viewer.dataSources.add(Cesium.CzmlDataSource.load('SampleData/simple.czml'));
-	   	
-	$("body").keydown(function() {	    
-	     viewer.dataSources.add(Cesium.CzmlDataSource.load("getCzmlDataSource.html?sats=25544,39159,39634&start=2016-02-26_15:00:00&end=2016-02-27_15:00:00&format=czml&type=orbit"));	        	
-	});
+
 });	
 
 </script>
 
 <body>
-    <div id="cesiumContainer"></div>
-</body>
+    <div id="cesiumContainer" class="row" style="height:80%"></div>
 
+    <div class="row">
+    	<button id="mbyutton" name="mybutton">test</button>>
+    </div>
+</body>
+<script>
+	$("#mybutton").onclick(function event(){
+		alert("fa");
+	});
+</script>
 </html>

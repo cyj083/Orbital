@@ -1,11 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,8 +17,8 @@
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="css/mybootstrap.min.css" rel="stylesheet">
+	<link href="css/sb-admin-2.css" rel="stylesheet">
     <!-- DataTables CSS -->
     <link href="css/dataTables.bootstrap.css" rel="stylesheet">
 
@@ -25,7 +27,6 @@
 <body>
 
 	<div id="page-wrapper">
-		</div>
 		<!-- /.row -->
 		<div class="row">
 			<div class="col-lg-12">
@@ -33,7 +34,7 @@
 					<!-- /.panel-heading -->
 					<div class="panel-body">
 						<div class="dataTable_wrapper">
-							<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+							<table class="table table-bordered table-hover" id="dataTables-example">
 								<thead>
 									<tr>
 										<th>Rendering engine</th>
