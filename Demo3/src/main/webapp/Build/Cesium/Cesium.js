@@ -1,4 +1,5 @@
 
+
 !function () {
 	var e,
 	t,
@@ -8723,7 +8724,7 @@
 		i.defaultKey = void 0;
 		var r,
 		n = !1,
-		o = "";
+		o = "This application is using Cesium's default Bing Maps key.  Please create a new key for the application as soon as possible and prior to deployment by visiting https://www.bingmapsportal.com/, and provide your key to Cesium by setting the Cesium.BingMapsApi.defaultKey property before constructing the CesiumWidget or any other object that uses the Bing Maps API.";
 		return i.getKey = function (e) {
 			return t(e) ? e : t(i.defaultKey) ? i.defaultKey : (n || (console.log(o), n = !0), "AnjT_wAj_juA_MsD8NhcEAVSjCYpV-e50lUypkWm1JPxVu0XyVqabsvD3r2DQpX-")
 		},
@@ -53063,7 +53064,7 @@
 				l.className = "cesium-credit-delimiter",
 				t.appendChild(l)
 			}
-			//t.appendChild(e.element) 不造去掉啥
+			t.appendChild(e.element)
 		}
 		function a(e, t) {
 			if (!i(e.element)) {
@@ -53073,7 +53074,7 @@
 				a = document.createElement("img");
 				if (a.src = e.imageUrl, a.style["vertical-align"] = "bottom", i(r) && (a.alt = r, a.title = r), e.hasLink()) {
 					var s = document.createElement("a");
-					//s.appendChild(a),		去掉bing的logo
+					s.appendChild(a),
 					s.href = n,
 					s.target = "_blank",
 					o.appendChild(s)
@@ -53082,7 +53083,7 @@
 				o.className = "cesium-credit-image",
 				e.element = o
 			}
-			//t.appendChild(e.element)//去掉下面一行很多cesium、bing和文本框
+			t.appendChild(e.element)
 		}
 		function s(t, i) {
 			for (var r = t.length, n = 0; r > n; n++) {
@@ -53101,7 +53102,7 @@
 					null === n && (n = t.nextSibling),
 					null !== n && r.removeChild(n)
 				}
-				
+				r.removeChild(t)
 			}
 		}
 		function u(e, t) {
@@ -53130,7 +53131,7 @@
 			var n = document.createElement("span");
 			n.className = "cesium-credit-textContainer",
 			e.appendChild(r),
-			//e.appendChild(n),		去掉文本框
+			e.appendChild(n),
 			this._delimiter = t(i, " • "),
 			this._textContainer = n,
 			this._imageContainer = r,
@@ -58605,7 +58606,7 @@
 			up2D : void 0,
 			frustum : void 0
 		};
-		_./*prototype.morphToColumbusView = function (t, i) {//去掉ColumbusView功能
+		_.prototype.morphToColumbusView = function (t, i) {
 			r(this._completeMorph) && this._completeMorph();
 			var n = this._scene;
 			if (this._previousMode = n.mode, this._previousMode !== g.COLUMBUS_VIEW && this._previousMode !== g.MORPHING) {
@@ -58646,7 +58647,7 @@
 				0 === t && r(this._completeMorph) && this._completeMorph()
 			}
 		},
-		_.*/prototype.morphTo3D = function (t, i) {
+		_.prototype.morphTo3D = function (t, i) {
 			r(this._completeMorph) && this._completeMorph();
 			var n = this._scene;
 			if (this._previousMode = n.mode, this._previousMode !== g.SCENE3D && this._previousMode !== g.MORPHING) {
@@ -67872,7 +67873,7 @@
 			var i = new s(t),
 			r = document.createElement("button");
 			r.type = "button",
-			r.className = "cesium-button cesium-toolbar-button1",
+			r.className = "cesium-button cesium-toolbar-button",
 			r.setAttribute("data-bind", "attr: { title: buttonTooltip },click: toggleDropDown"),
 			e.appendChild(r);
 			var l = document.createElement("img");
@@ -67881,14 +67882,13 @@
 			l.setAttribute("data-bind", "attr: { src: buttonImageUrl }"),
 			r.appendChild(l);
 			var u = document.createElement("div");
-			//u.className = "cesium-baseLayerPicker-dropDown",
-			u.className = "",
+			u.className = "cesium-baseLayerPicker-dropDown",
 			u.setAttribute("data-bind", 'css: { "cesium-baseLayerPicker-dropDown-visible" : dropDownVisible }'),
 			e.appendChild(u);
-			/*var c = document.createElement("div");
+			var c = document.createElement("div");
 			c.className = "cesium-baseLayerPicker-sectionTitle",
 			c.setAttribute("data-bind", "visible: imageryProviderViewModels.length > 0"),
-			c.innerHTML = "Default map",
+			c.innerHTML = "Imagery",
 			u.appendChild(c);
 			var h = document.createElement("div");
 			h.className = "cesium-baseLayerPicker-choices",
@@ -67927,8 +67927,8 @@
 			g.appendChild(_);
 			var y = document.createElement("div");
 			y.className = "cesium-baseLayerPicker-itemLabel",
-			y.setAttribute("data-bind", "text: name"),*/
-			//g.appendChild(y),
+			y.setAttribute("data-bind", "text: name"),
+			g.appendChild(y),
 			o.applyBindings(i, r),
 			o.applyBindings(i, u),
 			this._viewModel = i,
@@ -67989,7 +67989,7 @@
 		"use strict";
 		function l() {
 			var l = [];
-			l.push(new s({
+			return l.push(new s({
 					name : "Bing Maps Aerial",
 					iconUrl : e("Widgets/Images/ImageryProviders/bingAerial.png"),
 					tooltip : "Bing Maps aerial imagery \nhttp://www.bing.com/maps",
@@ -67999,9 +67999,157 @@
 							mapStyle : r.AERIAL
 						})
 					}
-				}));
-			return l;
-			
+				})),
+			l.push(new s({
+					name : "Bing Maps Aerial with Labels",
+					iconUrl : e("Widgets/Images/ImageryProviders/bingAerialLabels.png"),
+					tooltip : "Bing Maps aerial imagery with label overlays \nhttp://www.bing.com/maps",
+					creationFunction : function () {
+						return new i({
+							url : "https://dev.virtualearth.net",
+							mapStyle : r.AERIAL_WITH_LABELS
+						})
+					}
+				})),
+			l.push(new s({
+					name : "Bing Maps Roads",
+					iconUrl : e("Widgets/Images/ImageryProviders/bingRoads.png"),
+					tooltip : "Bing Maps standard road maps\nhttp://www.bing.com/maps",
+					creationFunction : function () {
+						return new i({
+							url : "https://dev.virtualearth.net",
+							mapStyle : r.ROAD
+						})
+					}
+				})),
+			l.push(new s({
+					name : "Mapbox Satellite",
+					tooltip : "Mapbox satellite imagery https://www.mapbox.com/maps/",
+					iconUrl : e("Widgets/Images/ImageryProviders/mapboxSatellite.png"),
+					creationFunction : function () {
+						return new a({
+							mapId : "mapbox.satellite"
+						})
+					}
+				})),
+			l.push(new s({
+					name : "Mapbox Streets",
+					tooltip : "Mapbox streets imagery https://www.mapbox.com/maps/",
+					iconUrl : e("Widgets/Images/ImageryProviders/mapboxTerrain.png"),
+					creationFunction : function () {
+						return new a({
+							mapId : "mapbox.streets"
+						})
+					}
+				})),
+			l.push(new s({
+					name : "Mapbox Streets Classic",
+					tooltip : "Mapbox streets basic imagery https://www.mapbox.com/maps/",
+					iconUrl : e("Widgets/Images/ImageryProviders/mapboxStreets.png"),
+					creationFunction : function () {
+						return new a({
+							mapId : "mapbox.streets-basic"
+						})
+					}
+				})),
+			l.push(new s({
+					name : "ESRI World Imagery",
+					iconUrl : e("Widgets/Images/ImageryProviders/esriWorldImagery.png"),
+					tooltip : "World Imagery provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide.  The map includes NASA Blue Marble: Next Generation 500m resolution imagery at small scales (above 1:1,000,000), i-cubed 15m eSAT imagery at medium-to-large scales (down to 1:70,000) for the world, and USGS 15m Landsat imagery for Antarctica. The map features 0.3m resolution imagery in the continental United States and 0.6m resolution imagery in parts of Western Europe from DigitalGlobe. In other parts of the world, 1 meter resolution imagery is available from GeoEye IKONOS, i-cubed Nationwide Prime, Getmapping, AeroGRID, IGN Spain, and IGP Portugal.  Additionally, imagery at different resolutions has been contributed by the GIS User Community.\nhttp://www.esri.com",
+					creationFunction : function () {
+						return new t({
+							url : "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+							enablePickFeatures : !1
+						})
+					}
+				})),
+			l.push(new s({
+					name : "ESRI World Street Map",
+					iconUrl : e("Widgets/Images/ImageryProviders/esriWorldStreetMap.png"),
+					tooltip : "This worldwide street map presents highway-level data for the world. Street-level data includes the United States; much of Canada; Japan; most countries in Europe; Australia and New Zealand; India; parts of South America including Argentina, Brazil, Chile, Colombia, and Venezuela; Ghana; and parts of southern Africa including Botswana, Lesotho, Namibia, South Africa, and Swaziland.\nhttp://www.esri.com",
+					creationFunction : function () {
+						return new t({
+							url : "https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+							enablePickFeatures : !1
+						})
+					}
+				})),
+			l.push(new s({
+					name : "ESRI National Geographic",
+					iconUrl : e("Widgets/Images/ImageryProviders/esriNationalGeographic.png"),
+					tooltip : "This web map contains the National Geographic World Map service. This map service is designed to be used as a general reference map for informational and educational purposes as well as a basemap by GIS professionals and other users for creating web maps and web mapping applications.\nhttp://www.esri.com",
+					creationFunction : function () {
+						return new t({
+							url : "https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/",
+							enablePickFeatures : !1
+						})
+					}
+				})),
+			l.push(new s({
+					name : "Open­Street­Map",
+					iconUrl : e("Widgets/Images/ImageryProviders/openStreetMap.png"),
+					tooltip : "OpenStreetMap (OSM) is a collaborative project to create a free editable map of the world.\nhttp://www.openstreetmap.org",
+					creationFunction : function () {
+						return n({
+							url : "https://a.tile.openstreetmap.org/"
+						})
+					}
+				})),
+			l.push(new s({
+					name : "Stamen Watercolor",
+					iconUrl : e("Widgets/Images/ImageryProviders/stamenWatercolor.png"),
+					tooltip : "Reminiscent of hand drawn maps, Stamen watercolor maps apply raster effect area washes and organic edges over a paper texture to add warm pop to any map.\nhttp://maps.stamen.com",
+					creationFunction : function () {
+						return n({
+							url : "https://stamen-tiles.a.ssl.fastly.net/watercolor/",
+							credit : "Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA."
+						})
+					}
+				})),
+			l.push(new s({
+					name : "Stamen Toner",
+					iconUrl : e("Widgets/Images/ImageryProviders/stamenToner.png"),
+					tooltip : "A high contrast black and white map.\nhttp://maps.stamen.com",
+					creationFunction : function () {
+						return n({
+							url : "https://stamen-tiles.a.ssl.fastly.net/toner/",
+							credit : "Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA."
+						})
+					}
+				})),
+			l.push(new s({
+					name : "MapQuest Open­Street­Map",
+					iconUrl : e("Widgets/Images/ImageryProviders/mapQuestOpenStreetMap.png"),
+					tooltip : "OpenStreetMap (OSM) is a collaborative project to create a free editable map of the world.\nhttp://www.openstreetmap.org",
+					creationFunction : function () {
+						return n({
+							url : "https://otile1-s.mqcdn.com/tiles/1.0.0/osm/"
+						})
+					}
+				})),
+			l.push(new s({
+					name : "The Black Marble",
+					iconUrl : e("Widgets/Images/ImageryProviders/blackMarble.png"),
+					tooltip : "The lights of cities and villages trace the outlines of civilization in this global view of the Earth at night as seen by NASA/NOAA's Suomi NPP satellite.",
+					creationFunction : function () {
+						return o({
+							url : "https://cesiumjs.org/blackmarble",
+							flipXY : !0,
+							credit : "Black Marble imagery courtesy NASA Earth Observatory"
+						})
+					}
+				})),
+			l.push(new s({
+					name : "Natural Earth II",
+					iconUrl : e("Widgets/Images/ImageryProviders/naturalEarthII.png"),
+					tooltip : "Natural Earth II, darkened for contrast.\nhttp://www.naturalearthdata.com/",
+					creationFunction : function () {
+						return o({
+							url : e("Assets/Textures/NaturalEarthII")
+						})
+					}
+				})),
+			l
 		}
 		return l
 	}),
@@ -68009,6 +68157,27 @@
 		"use strict";
 		function n() {
 			var n = [];
+			return n.push(new r({
+					name : "WGS84 Ellipsoid",
+					iconUrl : e("Widgets/Images/TerrainProviders/Ellipsoid.png"),
+					tooltip : "WGS84 standard ellipsoid, also known as EPSG:4326",
+					creationFunction : function () {
+						return new i
+					}
+				})),
+			n.push(new r({
+					name : "STK World Terrain meshes",
+					iconUrl : e("Widgets/Images/TerrainProviders/STK.png"),
+					tooltip : "High-resolution, mesh-based terrain for the entire globe. Free for use on the Internet. Closed-network options are available.\nhttp://www.agi.com",
+					creationFunction : function () {
+						return new t({
+							url : "https://assets.agi.com/stk-terrain/world",
+							requestWaterMask : !0,
+							requestVertexNormals : !0
+						})
+					}
+				})),
+			n
 		}
 		return n
 	}),
@@ -68782,7 +68951,7 @@
 			var d = document.createElement("div");
 			d.className = "cesium-widget-credits";
 			var T = o(a.creditContainer) ? S(a.creditContainer) : s;
-			T.appendChild(d);
+			//T.appendChild(d);
 			var A = n(a.showRenderLoopErrors, !0);
 			this._element = s,
 			this._container = e,
@@ -68814,7 +68983,7 @@
 				b(this);
 				var I = n(M.mapProjection.ellipsoid, u.WGS84),
 				D = M.frameState.creditDisplay,
-				R = new r("", P);
+				R = new r("Cesium", P, "http://cesiumjs.org/");
 				D.addDefaultCredit(R);
 				var O = a.globe;
 				o(O) || (O = new f(I)),
@@ -69169,7 +69338,7 @@
 			r.type = "button",
 			r.className = "cesium-button cesium-fullscreenButton",
 			r.setAttribute("data-bind", "attr: { title: tooltip },click: command,enable: isFullscreenEnabled,cesiumSvgPath: { path: isFullscreen ? _exitFullScreenPath : _enterFullScreenPath, width: 128, height: 128 }"),
-			//e.appendChild(r),
+			e.appendChild(r),
 			n.applyBindings(i, r),
 			this._container = e,
 			this._viewModel = i,
@@ -69346,7 +69515,7 @@
 			h.className = "cesium-geocoder-searchButton",
 			h.setAttribute("data-bind", "click: search,cesiumSvgPath: { path: isSearchInProgress ? _stopSearchPath : _startSearchPath, width: 32, height: 32 }"),
 			r.appendChild(h),
-			//t.appendChild(r),
+			t.appendChild(r),
 			o.applyBindings(i, r),
 			this._container = t,
 			this._viewModel = i,
@@ -69428,7 +69597,7 @@
 			s.type = "button",
 			s.className = "cesium-button cesium-toolbar-button cesium-home-button",
 			s.setAttribute("data-bind", "attr: { title: tooltip },click: command,cesiumSvgPath: { path: _svgPath, width: 28, height: 28 }"),
-			e.appendChild(s),		//去掉home
+			e.appendChild(s),
 			n.applyBindings(r, s),
 			this._container = e,
 			this._viewModel = r,
@@ -69644,11 +69813,11 @@
 			var c = document.createElement("span");
 			c.className = "cesium-navigationHelpButton-wrapper",
 			r.appendChild(c);
-			/*var h = document.createElement("button");
+			var h = document.createElement("button");
 			h.type = "button",
 			h.className = "cesium-button cesium-toolbar-button cesium-navigation-help-button",
 			h.setAttribute("data-bind", "attr: { title: tooltip },click: command,cesiumSvgPath: { path: _svgPath, width: 32, height: 32 }"),
-			c.appendChild(h);*/
+			c.appendChild(h);
 			var d = document.createElement("div");
 			d.className = "cesium-navigation-help",
 			d.setAttribute("data-bind", 'css: { "cesium-navigation-help-visible" : showInstructions}'),
@@ -69904,12 +70073,12 @@
 			d.setAttribute("data-bind", 'css: { "cesium-sceneModePicker-button2D": sceneMode === _sceneMode.SCENE2D,       "cesium-sceneModePicker-button3D": sceneMode === _sceneMode.SCENE3D,       "cesium-sceneModePicker-buttonColumbusView": sceneMode === _sceneMode.COLUMBUS_VIEW,       "cesium-sceneModePicker-selected": dropDownVisible },attr: { title: selectedTooltip },click: toggleDropDown'),
 			d.innerHTML = '<!-- ko cesiumSvgPath: { path: _globePath, width: 64, height: 64, css: "cesium-sceneModePicker-slide-svg cesium-sceneModePicker-icon3D" } --><!-- /ko --><!-- ko cesiumSvgPath: { path: _flatMapPath, width: 64, height: 64, css: "cesium-sceneModePicker-slide-svg cesium-sceneModePicker-icon2D" } --><!-- /ko --><!-- ko cesiumSvgPath: { path: _columbusViewPath, width: 64, height: 64, css: "cesium-sceneModePicker-slide-svg cesium-sceneModePicker-iconColumbusView" } --><!-- /ko -->',
 			l.appendChild(d);
-			var p = document.createElement("button");//3D
+			var p = document.createElement("button");
 			p.type = "button",
 			p.className = "cesium-button cesium-toolbar-button cesium-sceneModePicker-dropDown-icon",
 			p.setAttribute("data-bind", 'css: { "cesium-sceneModePicker-visible" : (dropDownVisible && (sceneMode !== _sceneMode.SCENE3D)) || (!dropDownVisible && (sceneMode === _sceneMode.SCENE3D)),       "cesium-sceneModePicker-none" : sceneMode === _sceneMode.SCENE3D,       "cesium-sceneModePicker-hidden" : !dropDownVisible },attr: { title: tooltip3D },click: morphTo3D,cesiumSvgPath: { path: _globePath, width: 64, height: 64 }'),
 			l.appendChild(p);
-			var m = document.createElement("button");//2D
+			var m = document.createElement("button");
 			m.type = "button",
 			m.className = "cesium-button cesium-toolbar-button cesium-sceneModePicker-dropDown-icon",
 			m.setAttribute("data-bind", 'css: { "cesium-sceneModePicker-visible" : (dropDownVisible && (sceneMode !== _sceneMode.SCENE2D)),       "cesium-sceneModePicker-none" : sceneMode === _sceneMode.SCENE2D,       "cesium-sceneModePicker-hidden" : !dropDownVisible },attr: { title: tooltip2D },click: morphTo2D,cesiumSvgPath: { path: _flatMapPath, width: 64, height: 64 }'),
@@ -69918,14 +70087,13 @@
 			f.type = "button",
 			f.className = "cesium-button cesium-toolbar-button cesium-sceneModePicker-dropDown-icon",
 			f.setAttribute("data-bind", 'css: { "cesium-sceneModePicker-visible" : (dropDownVisible && (sceneMode !== _sceneMode.COLUMBUS_VIEW)) || (!dropDownVisible && (sceneMode === _sceneMode.COLUMBUS_VIEW)),       "cesium-sceneModePicker-none" : sceneMode === _sceneMode.COLUMBUS_VIEW,       "cesium-sceneModePicker-hidden" : !dropDownVisible},attr: { title: tooltipColumbusView },click: morphToColumbusView,cesiumSvgPath: { path: _columbusViewPath, width: 64, height: 64 }'),
-			//l.appendChild(f),去掉ColumbusView页面显示
+			l.appendChild(f),
 			o.applyBindings(r, l),
 			this._viewModel = r,
 			this._container = e,
 			this._wrapper = l,
-			this._closeDropDown = function (e) {//点击球时调用的函数
+			this._closeDropDown = function (e) {
 				l.contains(e.target) || (r.dropDownVisible = !1)
-				//console.log('era');
 			},
 			n.supportsPointerEvents() ? document.addEventListener("pointerdown", this._closeDropDown, !0) : (document.addEventListener("mousedown", this._closeDropDown, !0), document.addEventListener("touchstart", this._closeDropDown, !0))
 		}
