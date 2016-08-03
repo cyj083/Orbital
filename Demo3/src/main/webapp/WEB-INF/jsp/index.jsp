@@ -309,26 +309,14 @@
                 <div class="col-lg-4">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
-                            Bordered Table
+                            Chart3
                             <a id="chart3_fullScreen" >
-									<span class="pull-right"><i class="fa fa-expand"></i></span>
+								<span class="pull-right"><i class="fa fa-expand"></i></span>
 							</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body" style="height:100%">
-                            <div id="cesiumContainer3" style="height:100%;width:100%"></div>
-							<script>
-							var viewer3 = new Cesium.Viewer('cesiumContainer3',{
-							 baseLayerPicker:false,
-						    fullscreenButton:false,
-						    sceneModePicker:false,
-						    geocoder:false,
-						    navigationHelpButton:false,
-						    sceneMode:Cesium.SceneMode.SCENE2D,
-						    //fullscreenElement:document.getElementById("cesiumContainer3")
-							});
-							//viewer3.dataSources.add(Cesium.CzmlDataSource.load('SampleData/simple.czml'));
-							</script>
+                            
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -412,74 +400,6 @@
 
 		</div>
 	</div>
-<div class="modal fade" id="table1" tabindex="-1" role="dialog" aria-hidden="true" >
-	    <div class="modal-dialog modal-lg" style="width:100%;height:550px;">
-		    <div class="modal-content">
-			    <div class="modal-body">
-                    <iframe id="table1" src="table1.html" style="width:100%;height:550px;">
-                    </iframe>
-			    </div>
-		    </div>
-
-	    </div>
-    </div>
-	<div class="modal fade" id="form1" tabindex="-1" role="dialog" aria-hidden="true" >
-	    <div class="modal-dialog modal-lg" style="width:100%;height:550px;">
-		    <div class="modal-content">
-			    <div class="modal-body">
-                    <iframe id="form1" src="form1.html" style="width:100%;height:550px;">
-                    </iframe>
-			    </div>
-		    </div>
-
-	    </div>
-    </div>
-	<div class="modal fade" id="table2" tabindex="-1" role="dialog" aria-hidden="true" >
-	    <div class="modal-dialog modal-lg" style="width:100%;height:550px;">
-		    <div class="modal-content">
-			    <div class="modal-body">
-                    <iframe id="table2" src="table2.html" style="width:100%;height:550px;">
-                    </iframe>
-			    </div>
-		    </div>
-
-	    </div>
-    </div>
-	<div class="modal fade" id="chart1" tabindex="-1" role="dialog" aria-hidden="true" >
-	    <div class="modal-dialog modal-lg" style="width:100%;height:550px;">
-		    <div class="modal-content">
-			    <div class="modal-body">
-                    <iframe id="chart1" src="chart1.html" style="width:100%;height:550px;">
-                    </iframe>
-			    </div>
-		    </div>
-
-	    </div>
-    </div>
-	<div class="modal fade" id="chart2" tabindex="-1" role="dialog" aria-hidden="true" >
-	    <div class="modal-dialog modal-lg" style="width:100%;height:550px;">
-		    <div class="modal-content">
-			    <div class="modal-body">
-                    <iframe id="chart2" src="chart2.html" style="width:100%;height:550px;">
-                    </iframe>
-			    </div>
-		    </div>
-
-	    </div>
-    </div>
-	<div class="modal fade" id="chart3" tabindex="-1" role="dialog" aria-hidden="true" >
-	    <div class="modal-dialog modal-lg" style="width:100%;height:550px;">
-		    <div class="modal-content">
-			    <div class="modal-body">
-                    <iframe id="chart3" src="1.html" style="width:100%;height:550px;">
-                    </iframe>
-			    </div>
-		    </div>
-
-	    </div>
-    </div>
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-
 </body>
 <script type="text/javascript">
 var mytable_width;
